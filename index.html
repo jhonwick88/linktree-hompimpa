@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hompimpa Promo Mie & Pangist Level</title>
+  <style>
+    :root {
+      --bg: #120608;
+      --surface: #1f0f10;
+      --surface-contrast: #2b1518;
+      --primary: #ff4d33;
+      --secondary: #ff9a3d;
+      --accent: #f5b749;
+      --text: #f8f1e7;
+      --muted: #b8a794;
+      --border: rgba(255, 77, 51, 0.18);
+      --shadow: 0 20px 60px rgba(0,0,0,0.34);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #3c0706 0%, #120608 45%, #090302 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero {
+      display: grid;
+      gap: 32px;
+      padding: 40px;
+      align-items: center;
+    }
+
+    .hero__badge {
+      display: inline-flex;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      font-size: 0.78rem;
+      background: rgba(255, 77, 51, 0.18);
+      color: var(--primary);
+      border-radius: 999px;
+      padding: 10px 16px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      letter-spacing: -0.05em;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .hero__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 26px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 30px rgba(255, 77, 51, 0.2);
+    }
+
+    .btn--primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+    }
+
+    .btn--secondary {
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .hero__visual {
+      display: grid;
+      gap: 18px;
+    }
+
+    .product-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .product-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .product-card img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      height: 280px;
+    }
+
+    .product-card__content {
+      padding: 22px;
+    }
+
+    .product-card__title {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .product-card__tag {
+      margin: 14px 0 0;
+      display: inline-flex;
+      background: rgba(255,154,61,0.14);
+      color: var(--secondary);
+      font-weight: 700;
+      padding: 8px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      font-size: 0.88rem;
+    }
+
+    .product-card__text {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .section {
+      margin-top: 36px;
+      padding: 28px 32px;
+    }
+
+    .section h2 {
+      margin: 0 0 18px;
+      font-size: 1.7rem;
+    }
+
+    .section p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid-2 {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .info-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 24px;
+      min-height: 220px;
+    }
+
+    .info-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+    }
+
+    .info-card p,
+    .info-card li {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .info-card ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .feature-item__dot {
+      width: 10px;
+      height: 10px;
+      margin-top: 8px;
+      border-radius: 999px;
+      background: var(--secondary);
+      flex-shrink: 0;
+    }
+
+    .location {
+      display: inline-flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 12px;
+      color: var(--text);
+    }
+
+    .location svg {
+      width: 20px;
+      height: 20px;
+      color: var(--primary);
+      flex-shrink: 0;
+      fill: currentColor;
+    }
+
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .highlight {
+      color: var(--secondary);
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        padding: 28px;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .product-card img {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="card hero">
+      <div>
+        <span class="hero__badge">Promo Spesial</span>
+        <h1>Hompimpa Mie & Pangist Level</h1>
+        <p>Nikmati sensasi pedas gurih Hompimpa dengan pilihan level cabe, mie kenyal, dan saus khas yang bikin nagih. Promo hari ini khusus order WA, boleh pilih paket mie + pangist atau paket hemat keluarga.</p>
+        <div class="hero__links">
+          <a class="btn btn--primary" href="#cara-order">Cara Order</a>
+          <a class="btn btn--secondary" href="#produk">Lihat Produk</a>
+          <a class="btn btn--secondary" href="#kontak">Hubungi WA</a>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="product-card">
+          <img src="images/Hompimpa Mie Pedas Gurih.jpeg" alt="Hompimpa Mie Pedas Gurih" />
+          <div class="product-card__content">
+            <h3 class="product-card__title">Mie Hompimpa</h3>
+            <span class="product-card__tag">Pedas & Gurih</span>
+            <p class="product-card__text">Mie tebal, bumbu cabai hitam, dan sayuran segar. SambalHomflix ala Hompimpa siap bikin lidah bergetar.</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="images/pangist-level.svg" alt="Hompimpa Pangist Level" />
+          <div class="product-card__content">
+            <h3 class="product-card__title">Pangist Level</h3>
+            <span class="product-card__tag">Level 1 - Super Hot</span>
+            <p class="product-card__text">Potongan daging tumis dengan bumbu cabe merah, bawang, dan rempah pedas. Pilih sesuai nyali kamu: normal, hot, atau ekstrem.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section" id="produk">
+      <h2>Menu Promo</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="images/paket-hompimpa.svg" alt="Paket Hompimpa" />
+          <div class="product-card__content">
+            <h3 class="product-card__title">Paket Mie + Pangist</h3>
+            <span class="product-card__tag">Best Seller</span>
+            <p class="product-card__text">Satu porsi mie Hompimpa + pilihan pangist level. Termasuk minuman es teh manis dan topping ekstra bawang goreng.</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="images/paket-keluarga-hompimpa.svg" alt="Paket Keluarga Hompimpa" />
+          <div class="product-card__content">
+            <h3 class="product-card__title">Paket Keluarga</h3>
+            <span class="product-card__tag">Hemat</span>
+            <p class="product-card__text">Dua porsi mie + dua paket pangist level yang bisa disesuaikan, cocok untuk keluarga kecil dan berkumpul bersama teman.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section" id="cara-order">
+      <h2>Cara Order</h2>
+      <div class="grid-2">
+        <div class="info-card">
+          <h3>Langkah Mudah</h3>
+          <ul>
+            <li>Pilih menu dan level pedas yang kamu inginkan.</li>
+            <li>Catat jumlah item, paket, dan nama pemesan.</li>
+            <li>Chat WA ke nomor resmi untuk konfirmasi pemesanan.</li>
+            <li>Transfer via OVO/Gopay/BCA, lalu kirim bukti pembayaran.</li>
+            <li>Tunggu konfirmasi dan estimasi pengiriman.</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>Pilihan Level Pangist</h3>
+          <ul>
+            <li><strong>Level 1:</strong> Sedikit pedas, cocok untuk pemula.</li>
+            <li><strong>Level 2:</strong> Pedas mantap, bumbu meresap.</li>
+            <li><strong>Level 3:</strong> Super hot untuk penantang pedas.</li>
+          </ul>
+          <div class="feature-list">
+            <div class="feature-item">
+              <span class="feature-item__dot"></span>
+              <div>Semua paket termasuk sambal Hompimpa & minyak wangi khas.</div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-item__dot"></span>
+              <div>Gunakan kode <strong>HOMPI10</strong> untuk diskon 10% pada pemesanan pertama.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section" id="kontak">
+      <h2>Info Kontak</h2>
+      <div class="grid-2">
+        <div class="info-card">
+          <h3>Nomor WA</h3>
+          <p><strong>+62 812-3456-7890</strong></p>
+          <p>Chat langsung untuk pesan sekarang, cek ketersediaan menu, atau minta paket custom.</p>
+        </div>
+        <div class="info-card">
+          <h3>Lokasi</h3>
+          <p>Hompimpa Kitchen</p>
+          <p>Jl. Rasa Pedas No. 8, Kota Gurih, Jawa Timur</p>
+          <div class="location">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"></path></svg>
+            <span>Jarak antar 15-30 menit untuk area kota. Kirim order sekarang!</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <p>Hompimpa - Rasa pedas gurih yang bikin ketagihan. Pantau promo terbaru setiap minggu.</p>
+    </div>
+  </div>
+</body>
+</html>

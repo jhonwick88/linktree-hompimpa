@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hompimpa Link Button Promo</title>
+  <style>
+    :root {
+      --bg: #1f0907;
+      --panel: #2b0f0f;
+      --panel-soft: rgba(255,200,150,0.1);
+      --border: rgba(255, 150, 60, 0.24);
+      --primary: #ff4b2b;
+      --secondary: #ff9a3d;
+      --text: #fff5ec;
+      --muted: rgba(255,220,190,0.85);
+      --shadow: 0 20px 60px rgba(0,0,0,0.34);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top left, #ff6b3d 0%, #d92f1a 35%, #8a1207 90%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 28px 18px 40px;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(40, 15, 12, 0.95), rgba(35, 12, 10, 0.88));
+      border: 1px solid rgba(255, 140, 70, 0.25);
+      border-radius: 32px;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.32);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 36px 34px;
+      display: grid;
+      gap: 28px;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      align-items: center;
+    }
+
+    .hero__eyebrow {
+      display: inline-flex;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255, 115, 65, 0.18);
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .hero__image {
+      position: relative;
+      min-height: 360px;
+      border-radius: 28px;
+      overflow: hidden;
+      background-image: linear-gradient(180deg, rgba(255, 145, 70, 0.14), rgba(148, 22, 10, 0.78)), url("https://images.unsplash.com/photo-1512058564366-c9e9b4b2f12f?auto=format&fit=crop&w=900&q=80");
+      background-size: cover;
+      background-position: center;
+      box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.12);
+    }
+
+    .hero__image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+    }
+
+    .hero__image p {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      color: #fff;
+      font-size: 0.98rem;
+      line-height: 1.5;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 4vw, 3.6rem);
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .button-list {
+      display: grid;
+      gap: 16px;
+      padding: 0 34px 34px;
+    }
+
+    .button-list a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      border-radius: 24px;
+      text-decoration: none;
+      background: rgba(35, 12, 10, 0.72);
+      border: 1px solid rgba(255, 145, 70, 0.24);
+      color: var(--text);
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      backdrop-filter: blur(12px);
+    }
+
+    .button-list a:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 110, 55, 0.18);
+      border-color: rgba(255, 170, 90, 0.32);
+    }
+
+    .button-list a span {
+      display: inline-flex;
+      gap: 14px;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .button-list a small {
+      color: rgba(247,240,231,0.82);
+      font-size: 0.94rem;
+    }
+
+    .button-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: grid;
+      place-items: center;
+      color: #1c0705;
+      font-weight: 800;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 18px 30px rgba(255, 91, 62, 0.22);
+    }
+
+    .button-list a:hover .button-icon {
+      transform: scale(1.18);
+      box-shadow: 0 22px 40px rgba(255, 91, 62, 0.25);
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 18px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 160, 80, 0.3);
+      background: linear-gradient(135deg, rgba(255, 70, 40, 0.95), rgba(255, 140, 60, 0.95));
+      color: #1a0804;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 36px rgba(255, 110, 55, 0.28);
+      opacity: 0.98;
+    }
+
+    .cta-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .section {
+      padding: 34px;
+      border-top: 1px solid rgba(255, 140, 60, 0.22);
+      display: grid;
+      gap: 24px;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+    }
+
+    .grid-two {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .info-card {
+      background: rgba(255, 110, 50, 0.14);
+      border: 1px solid rgba(255, 130, 55, 0.28);
+      border-radius: 24px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .info-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+    }
+
+    .info-card p,
+    .info-card li {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .info-card ul {
+      padding-left: 18px;
+      margin: 12px 0 0;
+    }
+
+    .footer {
+      padding: 24px 34px 34px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .badge-hot {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 91, 62, 0.16);
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 740px) {
+      .grid-two {
+        grid-template-columns: 1fr;
+      }
+
+      .button-list {
+        padding: 0 22px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <article class="panel">
+      <section class="hero">
+        <div>
+          <span class="hero__eyebrow">Hompimpa Promo</span>
+          <h1>Link Button Hompimpa Mie & Pangist</h1>
+          <p>Versi praktis untuk promo dengan tampilan tombol list. Bagus untuk landing page, WhatsApp story, atau daftar shortcut pemesanan.</p>
+        </div>
+        <div class="hero__image">
+          <p>Rasakan sensasi harum cabai, gurihnya mie, dan kekuatan pangist level dalam desain yang aktif dan modern.</p>
+        </div>
+      </section>
+      <nav class="button-list" aria-label="Menu Promo Hompimpa">
+        <a href="#produk">
+          <span><span class="button-icon" aria-hidden="true">🍜</span> Menu Promo</span>
+          <small>Lihat paket mie & pangist</small>
+        </a>
+        <a href="#cara-order">
+          <span><span class="button-icon" aria-hidden="true">🛒</span> Cara Order</span>
+          <small>Petunjuk pemesanan cepat</small>
+        </a>
+        <a href="#kontak">
+          <span><span class="button-icon" aria-hidden="true">💬</span> Nomor WA</span>
+          <small>Chat langsung untuk order</small>
+        </a>
+        <a href="#lokasi">
+          <span><span class="button-icon" aria-hidden="true">📍</span> Lokasi</span>
+          <small>Alamat Hompimpa Kitchen</small>
+        </a>
+        <a href="#foto-produk">
+          <span><span class="button-icon" aria-hidden="true">📸</span> Photo Produk</span>
+          <small>Preview menu unggulan</small>
+        </a>
+      </nav>
+      <section class="section" id="produk">
+        <div class="badge-hot">Best Seller</div>
+        <h2>Menu Promo</h2>
+        <div class="grid-two">
+          <div class="info-card">
+            <h3>Mie Hompimpa Level</h3>
+            <ul>
+              <li><strong>Level 1 - Sedikit Pedas</strong> : Rp 23.000</li>
+              <li><strong>Level 2 - Pedas Sedang</strong> : Rp 25.000</li>
+              <li><strong>Level 3 - Pedas Mantap</strong> : Rp 27.000</li>
+              <li><strong>Level 4 - Super Hot</strong> : Rp 29.000</li>
+              <li><strong>Level 5 - Ekstrem</strong> : Rp 32.000</strong></li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3>Pangsit Pilihan</h3>
+            <ul>
+              <li><strong>Pangsit Goreng</strong> : Rp 12.000</li>
+              <li><strong>Pangsit Rebus</strong> : Rp 13.000</li>
+              <li><strong>Pangsit Ayam</strong> : Rp 15.000</li>
+              <li><strong>Pangsit Sapi</strong> : Rp 17.000</li>
+              <li><strong>Pangsit Jumbo</strong> : Rp 20.000</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="cara-order">
+        <h2>Cara Order</h2>
+        <ul>
+          <li>Pilih paket dan level pedas.</li>
+          <li>Chat WA +62 812-3456-7890.</li>
+          <li>Kirim detail nama, alamat, dan metode bayar.</li>
+          <li>Konfirmasi pesanan dan tunggu estimasi kirim.</li>
+        </ul>
+      </section>
+      <section class="section" id="kontak">
+        <h2>Hubungi</h2>
+        <p>Nomor WA : <strong>+62 812-3456-7890</strong></p>
+        <p>Chat WA sekarang untuk pesan dan promo terbaru.</p>
+        <a class="cta-button" href="https://web.whatsapp.com/send?phone=6281234567890&text=Halo%20Hompimpa%2C%20saya%20ingin%20memesan%20paket%20mie%20dan%20pangist%20level%20terbaru." target="_blank" rel="noopener noreferrer">
+          <span>Chat ke WhatsApp Web</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20.5 3.5A10.4 10.4 0 0 0 12 1.5C6.2 1.5 1.3 6.4 1.3 12.2c0 1.9.5 3.7 1.6 5.3L1 23l5.7-1.5c1.5.8 3.3 1.2 5.1 1.2 5.8 0 10.6-4.7 10.6-10.5 0-2.8-1.1-5.4-3.1-7.2zM12 21.5c-1.6 0-3.1-.4-4.4-1.1l-.3-.2-3.4.9.9-3.2-.2-.3A8.6 8.6 0 0 1 3.5 12.2c0-4.7 3.8-8.5 8.5-8.5 4.6 0 8.4 3.7 8.4 8.5 0 4.7-3.8 8.5-8.4 8.5zm4.7-6.4c-.2-.1-1.2-.6-1.4-.6-.2-.1-.4 0-.6.2-.2.1-.7.6-.8.7-.1.1-.3.1-.6 0-.2-.1-.9-.3-1.7-1-.6-.5-1.1-1.1-1.2-1.4-.1-.2 0-.4.1-.5.1-.2.2-.4.3-.5.1-.1.1-.2.2-.4.1-.1 0-.3 0-.4 0-.2-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4-.2 0-.4 0-.6 0-.2 0-.5.1-.8.4-.2.2-.9.9-.9 2.2s.9 2.5 1 2.6c.1.1 1.7 2.6 4.2 3.6.6.3 1 .5 1.4.5.6 0 1.1-.2 1.6-.7.5-.5.8-1.1.9-1.2.1-.1.1-.2.1-.3 0-.1 0-.3-.1-.4z"></path></svg>
+        </a>
+      </section>
+      <section class="section" id="lokasi">
+        <h2>Lokasi</h2>
+        <p>Hompimpa Kitchen</p>
+        <p>Jl. Rasa Pedas No. 8, Kota Gurih, Jawa Timur</p>
+        <div style="margin-top:24px; border-radius:24px; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,0.24);">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.5871474783426!2d111.92382377431194!3d-7.619820092395568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e784ba92a27d9cf%3A0x539a50d987f7646a!2sHompimpa%20Mie%20%26%20Pangsit!5e0!3m2!1sid!2sid!4v1781838350168!5m2!1sid!2sid" width="100%" height="340" style="border:0; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </section>
+      <section class="section" id="foto-produk">
+        <h2>Photo Produk</h2>
+        <div class="grid-two">
+          <div class="info-card">
+            <h3>Mie Pedas Gurih</h3>
+            <p>Visualisasi rasa tematik dengan nuansa merah dan oranye yang menggoda.</p>
+          </div>
+          <div class="info-card">
+            <h3>Pangist Level</h3>
+            <p>Desain yang menonjolkan level pedas dan bumbu kekinian untuk konsumen pemberani.</p>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">
+        <p>Hompimpa - Promo pedas dan gurih dengan tampilan tombol yang mudah dijangkau.</p>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>

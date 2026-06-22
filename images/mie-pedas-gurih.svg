@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff4d33" />
+      <stop offset="100%" stop-color="#ff9a3d" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" rx="40" fill="#1f0f10" />
+  <rect x="40" y="40" width="820" height="520" rx="32" fill="rgba(255,255,255,0.06)" />
+  <path d="M120 460c140-180 380-180 520 0" fill="none" stroke="url(#g)" stroke-width="28" stroke-linecap="round" />
+  <circle cx="300" cy="260" r="110" fill="#2b1518" stroke="#ff4d33" stroke-width="16" />
+  <circle cx="320" cy="240" r="24" fill="#ff9a3d" />
+  <circle cx="380" cy="260" r="20" fill="#ff9a3d" />
+  <path d="M240 320q80-90 160 0" fill="none" stroke="#ff9a3d" stroke-width="18" stroke-linecap="round" />
+  <text x="50%" y="520" text-anchor="middle" fill="#f8f1e7" font-family="Inter, sans-serif" font-size="40" font-weight="700">Hompimpa Mie Pedas Gurih</text>
+</svg>
